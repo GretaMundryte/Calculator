@@ -4,15 +4,15 @@ namespace Persons
 {
     public class Calculator
     {
-        public static bool ThrowErrors = true;
+        public bool ThrowErrors = false;
         
         static void Main(string[] args)
         {
-            var result = Run(args);
+            var result = new Calculator().Run(args);
             System.Console.WriteLine(result);
         }
 
-        public static double Run(string[] args)
+        public double Run(string[] args)
         {
             var a = args[1];
             var b = args[2];
