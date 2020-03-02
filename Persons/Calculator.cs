@@ -4,6 +4,8 @@ namespace Persons
 {
     public class Calculator
     {
+        public static bool ThrowErrors = true;
+        
         static void Main(string[] args)
         {
             var result = Run(args);
@@ -37,7 +39,15 @@ namespace Persons
             }
             else
             {
-                return 0;
+                if (ThrowErrors == true)
+                {
+                    throw new ArgumentException("Invalid action <3");
+                }
+                else
+                {
+                    return 0;
+                }
+                
             }
         }
     }

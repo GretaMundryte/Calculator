@@ -45,8 +45,8 @@ namespace CalculatorTest
         [Test]
         public void UnclearNumber()
         {
-            var result = Calculator.Run(new string[] {"fail", "50", "5"});
-            Assert.AreEqual(0, result);
+            TestDelegate runThatFails = () => Calculator.Run(new string[] {"fail", "50", "5"});
+            Assert.Throws<ArgumentException>(runThatFails);
         }
     }
 }
