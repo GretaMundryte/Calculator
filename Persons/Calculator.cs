@@ -4,36 +4,56 @@ namespace Persons
 {
     public class Calculator
     {
-        public bool ThrowErrors = false;
+        public bool ThrowErrors = true;
         
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            var result = new Calculator().Run(args);
-            System.Console.WriteLine(result);
+
+            try
+            {
+
+                Console.WriteLine("Write operation: *, /, +, -,");
+                var action = Console.ReadLine();
+                
+                Console.WriteLine("Write first number");
+                var firstNumber = Convert.ToDouble(Console.ReadLine());
+                
+                Console.WriteLine("Write second number");
+                var secondNumber = Convert.ToDouble(Console.ReadLine());
+                
+                var result = new Calculator().Run(action, firstNumber, secondNumber);
+                System.Console.WriteLine(result);
+                
+            }
+            catch (DivideByZeroException)
+            {
+                Console.WriteLine("Cannot be divided by 0");
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Invalid Number");
+            }
         }
 
-        public double Run(string[] args)
+        public double Run(string action, double firstNumber, double secondNumber)
         {
-            var a = args[1];
-            var b = args[2];
-            var firstNumber = Convert.ToDouble(a);
-            var secondNumber = Convert.ToDouble(b);
-
-            var action = args[0];
-
-            if (action == "multiply")
+            if (action == "*")
             {
                 return firstNumber * secondNumber;
             }
-            else if (action == "divide")
+            else if (action == "/")
             {
+                if (secondNumber == 0)
+                {
+                    throw new ArgumentException("Number cannot be divided by 0");
+                }
                 return firstNumber / secondNumber;
             }
-            else if (action == "subtract")
+            else if (action == "-")
             {
                 return firstNumber - secondNumber;
             }
-            else if (action == "sum")
+            else if (action == "+")
             {
                 return firstNumber + secondNumber;
             }
@@ -41,7 +61,7 @@ namespace Persons
             {
                 if (ThrowErrors == true)
                 {
-                    throw new ArgumentException("Invalid action <3");
+                    throw new ArgumentException("Invalid action: " + action);
                 }
                 else
                 {
@@ -49,6 +69,18 @@ namespace Persons
                 }
                 
             }
+        }
+    }
+}
+
+namespace StaticTest
+{
+    class Testing
+    {
+        static void Test(string[] args)
+        {
+            // double result = Calculator.Main("+", 5, 4);
+            // Console.WriteLine(result);
         }
     }
 }
