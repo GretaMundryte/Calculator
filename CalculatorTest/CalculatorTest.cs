@@ -4,7 +4,7 @@ using CalculatorApp;
 
 namespace CalculatorTest
 {
-    public class Tests
+    public class CalculatorTest
     {
         [SetUp]
         public void Setup()

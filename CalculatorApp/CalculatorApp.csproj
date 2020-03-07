@@ -3,7 +3,11 @@
     <PropertyGroup>
         <OutputType>Exe</OutputType>
         <TargetFramework>netcoreapp3.1</TargetFramework>
-        <RootNamespace>Persons</RootNamespace>
+        <RootNamespace>CalculatorApp</RootNamespace>
     </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="obj\Debug\netcoreapp3.1" />
+    </ItemGroup>
 
 </Project>

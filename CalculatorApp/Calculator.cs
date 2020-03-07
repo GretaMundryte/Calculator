@@ -8,7 +8,6 @@ namespace CalculatorApp
         
         public static void Main(string[] args)
         {
-
             try
             {
 
@@ -70,17 +69,10 @@ namespace CalculatorApp
                 
             }
         }
-    }
-}
 
-namespace StaticTest
-{
-    class Testing
-    {
-        static void Test(string[] args)
+        public static double StaticRun(string action, double firstNumber, double secondNumber)
         {
-            // double result = Calculator.Main("+", 5, 4);
-            // Console.WriteLine(result);
+            return new Calculator().Run(action, firstNumber, secondNumber);
         }
     }
 }
