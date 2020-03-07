@@ -11,7 +11,7 @@ namespace CalculatorApp
             try
             {
 
-                Console.WriteLine("Write operation: *, /, +, -,");
+                Console.WriteLine("Write operation: *, /, +, -");
                 var action = Console.ReadLine();
                 
                 Console.WriteLine("Write first number");
