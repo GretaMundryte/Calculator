@@ -21,7 +21,7 @@ namespace CalculatorApp
                 var secondNumber = Convert.ToDouble(Console.ReadLine());
                 
                 var result = new Calculator().Run(action, firstNumber, secondNumber);
-                System.Console.WriteLine(result);
+                Console.WriteLine(result);
                 
             }
             catch (DivideByZeroException)
@@ -58,7 +58,7 @@ namespace CalculatorApp
             }
             else
             {
-                if (ThrowErrors == true)
+                if (ThrowErrors)
                 {
                     throw new ArgumentException("Invalid action: " + action);
                 }
@@ -68,11 +68,6 @@ namespace CalculatorApp
                 }
                 
             }
-        }
-
-        public static double StaticRun(string action, double firstNumber, double secondNumber)
-        {
-            return new Calculator().Run(action, firstNumber, secondNumber);
         }
     }
 }
